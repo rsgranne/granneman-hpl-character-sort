@@ -1,0 +1,342 @@
+/* ============================================================
+   CSS Custom Properties — color tokens
+   ============================================================ */
+:root {
+	/* Backgrounds */
+	--bg-page:        #0d0d0d;
+	--bg-hero:        #1a1a2e;
+	--bg-controls:    #111;
+	--bg-card:        #1a1a2e;
+	--bg-footer:      #0a0a0a;
+	--bg-btn-inactive:#222;
+	--bg-search:      #1e1e1e;
+
+	/* Text */
+	--text-body:      #bbb;
+	--text-accent:    #c9b99a;
+	--text-muted:     #aaa;
+	--text-btn:       #ccc;
+
+	/* Borders */
+	--border-card:    #2a2a3e;
+	--border-controls:#333;
+
+	/* Filter active colors (per category) */
+	--active-alignment: #2d6a4f;
+	--active-type:      #3a0ca3;
+	--active-env:       #023e8a;
+
+	/* Badge — Alignment */
+	--badge-good:         #2d6a4f;
+	--badge-neutral:      #6c757d;
+	--badge-evil:         #9b2226;
+	--badge-cosmic-align: #1b263b;
+
+	/* Badge — Type */
+	--badge-outer-god:      #3a0ca3;
+	--badge-great-old-one:  #560bad;
+	--badge-ancient-race:   #7b2d8b;
+	--badge-monster:        #4a4e69;
+	--badge-human:          #774936;
+	--badge-hybrid:         #5c4033;
+	--badge-cultist:        #3d405b;
+
+	/* Badge — Environment */
+	--badge-cosmic-env:   #1b263b;
+	--badge-ocean:        #023e8a;
+	--badge-arctic:       #415a77;
+	--badge-underground:  #5c4033;
+	--badge-urban:        #4a4e69;
+	--badge-rural:        #1b4332;
+	--badge-dreamlands:   #6d3b47;
+	--badge-cosmic-border:#4a4e69;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--bg-page);
+	color: var(--text-body);
+	font-size: 1rem;
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+	background-color: var(--bg-hero);
+	text-align: center;
+}
+
+.hero-img {
+	width: 100%;
+	display: block;
+}
+
+.hero-text {
+	padding: 1.5rem 1rem 1.75rem;
+}
+
+.hero-text h1 {
+	font-size: 1.953rem; /* Major Third step 3 */
+	font-weight: bold;
+	color: var(--text-accent);
+	letter-spacing: 0.04em;
+	margin: 0 0 0.4rem;
+}
+
+.hero-text p {
+	font-size: 1.25rem; /* Major Third step 1 */
+	color: var(--text-muted);
+	margin: 0;
+}
+
+/* ============================================================
+   Controls bar
+   ============================================================ */
+.controls-bar {
+	background-color: var(--bg-controls);
+	border-bottom: 1px solid var(--border-controls);
+	padding: 1.25rem 0;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+/* Search */
+.search-wrap {
+	margin-bottom: 1rem;
+}
+
+.search-input {
+	width: 100%;
+	background: var(--bg-search);
+	border: 1px solid #555;
+	border-radius: 4px;
+	padding: 0.6rem 0.9rem;
+	color: var(--text-body);
+	font-size: 1rem;
+	appearance: none;
+}
+
+.search-input::placeholder {
+	color: #999;
+}
+
+.search-input:focus {
+	outline: 2px solid var(--active-type);
+	outline-offset: 1px;
+}
+
+/* Filters */
+.filters {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.filter-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+.filter-label {
+	font-size: 1.25rem; /* Major Third step 1 */
+	font-weight: 600;
+	color: var(--text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	min-width: 7rem;
+}
+
+.filter-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+}
+
+.filter-btn {
+	background: var(--bg-btn-inactive);
+	color: var(--text-btn);
+	border: none;
+	border-radius: 999px;
+	padding: 0.35rem 0.8rem;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 1.4;
+}
+
+.filter-btn:hover {
+	filter: brightness(1.25);
+}
+
+/* Active filter buttons — color per category */
+[data-filter="alignment"] .filter-btn.active {
+	background: var(--active-alignment);
+	color: #fff;
+}
+
+[data-filter="type"] .filter-btn.active {
+	background: var(--active-type);
+	color: #fff;
+}
+
+[data-filter="environment"] .filter-btn.active {
+	background: var(--active-env);
+	color: #fff;
+}
+
+/* Sort bar */
+.sort-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.results-count {
+	font-size: 1rem;
+	color: var(--text-muted);
+}
+
+.results-count strong {
+	color: #ddd;
+}
+
+.sort-control {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.sort-label {
+	font-size: 1rem;
+	color: var(--text-muted);
+}
+
+.sort-select {
+	background: #333;
+	color: #ddd;
+	border: none;
+	border-radius: 4px;
+	padding: 0.35rem 0.8rem;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.sort-select:focus {
+	outline: 2px solid var(--active-type);
+	outline-offset: 1px;
+}
+
+/* ============================================================
+   Card grid
+   ============================================================ */
+.character-card .card {
+	background-color: var(--bg-card);
+	border: 1px solid var(--border-card);
+	border-radius: 8px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.character-card .card-img-top {
+	width: 100%;
+	display: block;
+}
+
+.character-card .card-body {
+	padding: 1rem;
+}
+
+.character-card .card-title {
+	font-size: 1.25rem; /* Major Third step 1 */
+	font-weight: bold;
+	color: var(--text-accent);
+	margin-bottom: 0.4rem;
+}
+
+.character-card .card-description {
+	font-size: 1rem;
+	color: var(--text-body);
+	line-height: 1.5;
+	margin-bottom: 0.5rem;
+}
+
+.character-card .card-citation {
+	font-size: 1rem;
+	color: var(--text-body);
+	font-style: italic;
+	margin-bottom: 0.75rem;
+}
+
+/* ============================================================
+   Badge pills
+   ============================================================ */
+.card-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+}
+
+.badge-pill {
+	display: inline-block;
+	padding: 0.25rem 0.6rem;
+	border-radius: 999px;
+	font-size: 1rem;
+	line-height: 1.4;
+	color: #fff;
+}
+
+/* Alignment badges */
+.badge-alignment-good        { background: var(--badge-good); }
+.badge-alignment-neutral     { background: var(--badge-neutral); }
+.badge-alignment-evil        { background: var(--badge-evil); }
+.badge-alignment-cosmic      { background: var(--badge-cosmic-align); color: var(--text-accent); border: 1px solid var(--badge-cosmic-border); }
+
+/* Type badges */
+.badge-type-outer-god        { background: var(--badge-outer-god); }
+.badge-type-great-old-one    { background: var(--badge-great-old-one); }
+.badge-type-ancient-race     { background: var(--badge-ancient-race); }
+.badge-type-monster          { background: var(--badge-monster); }
+.badge-type-human            { background: var(--badge-human); }
+.badge-type-hybrid           { background: var(--badge-hybrid); }
+.badge-type-cultist          { background: var(--badge-cultist); }
+
+/* Environment badges */
+.badge-environment-cosmic     { background: var(--badge-cosmic-env); color: var(--text-accent); border: 1px solid var(--badge-cosmic-border); }
+.badge-environment-ocean      { background: var(--badge-ocean); }
+.badge-environment-arctic     { background: var(--badge-arctic); }
+.badge-environment-underground{ background: var(--badge-underground); }
+.badge-environment-urban      { background: var(--badge-urban); }
+.badge-environment-rural      { background: var(--badge-rural); }
+.badge-environment-dreamlands { background: var(--badge-dreamlands); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+	background-color: var(--bg-footer);
+	border-top: 1px solid #222;
+	text-align: center;
+	padding: 0.75rem 1.25rem;
+}
+
+.site-footer p {
+	font-size: 0.875rem; /* Major Third step −1 — footer only exception */
+	color: var(--text-muted);
+	margin: 0;
+}
