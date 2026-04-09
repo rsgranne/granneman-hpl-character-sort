@@ -47,6 +47,7 @@ function createCard(char) {
 
 function renderCards() {
 	const grid = document.getElementById('card-grid');
+	if (!grid) return;
 	const sorted = [...window.characters].sort((a, b) => a.name.localeCompare(b.name));
 	sorted.forEach(char => grid.appendChild(createCard(char)));
 }
