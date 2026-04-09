@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>H.P. Lovecraft &amp; the Cthulhu Mythos</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<header class="hero">
+		<img src="images/managers/managers-hero.webp" class="hero-img" alt="Misty eldritch landscape evoking the Cthulhu Mythos">
+		<div class="hero-text">
+			<h1>H.P. Lovecraft &amp; the Cthulhu Mythos</h1>
+			<p>Characters, creatures, and cosmic horrors</p>
+		</div>
+	</header>
+
+	<div class="controls-bar">
+		<div class="container-xl">
+
+			<div class="search-wrap">
+				<input
+					type="search"
+					id="search"
+					class="search-input"
+					placeholder="Search by name or description…"
+					aria-label="Search characters">
+			</div>
+
+			<div class="filters">
+
+				<div class="filter-group">
+					<span class="filter-label">Alignment</span>
+					<div class="filter-buttons" data-filter="alignment">
+						<button class="filter-btn active" data-value="All">All</button>
+						<button class="filter-btn" data-value="Good">Good</button>
+						<button class="filter-btn" data-value="Neutral">Neutral</button>
+						<button class="filter-btn" data-value="Evil">Evil</button>
+						<button class="filter-btn" data-value="Cosmic">Cosmic</button>
+					</div>
+				</div>
+
+				<div class="filter-group">
+					<span class="filter-label">Type</span>
+					<div class="filter-buttons" data-filter="type">
+						<button class="filter-btn active" data-value="All">All</button>
+						<button class="filter-btn" data-value="Outer God">Outer God</button>
+						<button class="filter-btn" data-value="Great Old One">Great Old One</button>
+						<button class="filter-btn" data-value="Ancient Race">Ancient Race</button>
+						<button class="filter-btn" data-value="Monster">Monster</button>
+						<button class="filter-btn" data-value="Human">Human</button>
+						<button class="filter-btn" data-value="Hybrid">Hybrid</button>
+						<button class="filter-btn" data-value="Cultist">Cultist</button>
+					</div>
+				</div>
+
+				<div class="filter-group">
+					<span class="filter-label">Environment</span>
+					<div class="filter-buttons" data-filter="environment">
+						<button class="filter-btn active" data-value="All">All</button>
+						<button class="filter-btn" data-value="Cosmic">Cosmic</button>
+						<button class="filter-btn" data-value="Ocean">Ocean</button>
+						<button class="filter-btn" data-value="Arctic">Arctic</button>
+						<button class="filter-btn" data-value="Underground">Underground</button>
+						<button class="filter-btn" data-value="Urban">Urban</button>
+						<button class="filter-btn" data-value="Rural">Rural</button>
+						<button class="filter-btn" data-value="Dreamlands">Dreamlands</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="sort-bar">
+				<span class="results-count">Showing <strong id="results-count">22</strong> characters</span>
+				<div class="sort-control">
+					<label for="sort" class="sort-label">Sort:</label>
+					<select id="sort" class="sort-select" aria-label="Sort characters">
+						<option value="name-asc">Name A–Z</option>
+						<option value="name-desc">Name Z–A</option>
+						<option value="date-asc">First Appearance</option>
+					</select>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<main class="container-xl py-4">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="card-grid"></div>
+	</main>
+
+	<footer class="site-footer">
+		<p>&copy; 2026 Scott Granneman</p>
+	</footer>
+
+	<script src="characters.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
